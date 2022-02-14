@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { PostCard, Categories, PostWidget } from "../components";
+import { getPosts } from "../services";
 
 const posts = [
   { title: "React testing", excerpt: "Learn React testing" },
