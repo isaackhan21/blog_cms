@@ -49,6 +49,16 @@ const PostCard = ({ post }) => {
           <span>{moment(post.createdAt).format("DD MMM, YYYY")}</span>
         </div>
       </div>
+      <p className="mb-8 px-4 text-center text-lg font-normal text-gray-700 lg:px-20">
+        {post.excerpt}
+      </p>
+      <div className="text-center">
+        <Link href={`/post/${post.slug}`}>
+          <span className="inline-block transform cursor-pointer rounded-full bg-pink-600 px-8 py-3 text-lg font-medium text-white transition duration-500 hover:-translate-y-1">
+            Continue Reading
+          </span>
+        </Link>
+      </div>
     </div>
   );
 };
