@@ -3,10 +3,12 @@ import { Header } from "./";
 
 const Layout = ({ children }) => {
   return (
-    <>
-      <Header />
-      {children}
-    </>
+    <div className="  flex h-screen flex-col  ">
+      <div className=" dark:bg-gray-900">
+        <Header />
+        {children}
+      </div>
+    </div>
   );
 };
 

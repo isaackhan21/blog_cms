@@ -59,53 +59,54 @@ const PostDetail = ({ post }) => {
     }
   };
   return (
-    <div className="mb-8 rounded-lg bg-white pb-12 shadow-lg lg:p-8">
-      <div className="relative mb-6 overflow-hidden shadow-md">
+    <div class=" mx-auto mb-8 max-w-6xl overflow-hidden rounded-lg bg-white  dark:bg-gray-800 ">
+      <div className="">
         <img
           src={post.featuredImage.url}
           alt={post.title}
           className="h-full w-full rounded-t-lg object-top"
         />
       </div>
-      <div className="px-4 lg:px-0">
-        <div className="mb-8 flex w-full items-center">
-          <div className="mb-4 mr-8 flex w-full items-center  lg:mb-0 lg:w-auto">
+
+      <div class="p-6">
+        <div class="flex items-center">
+          <div class="flex items-center">
             <img
+              class="h-10 rounded-full object-cover"
               src={post.author.photo.url}
               alt={post.author.name}
-              height="30px"
-              width="30px"
-              className="rounded-full align-middle "
             />
-            <p className="ml-2 inline align-middle text-lg text-gray-700">
+            <p
+              href="#"
+              class="mx-2 text-lg font-semibold text-gray-700 dark:text-gray-200"
+            >
               {post.author.name}
             </p>
           </div>
-          <div className="font-medium text-gray-700">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="mr-2 inline h-6 w-6 text-pink-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
-            <span>{moment(post.createdAt).format("DD MMM, YYYY")}</span>
-          </div>
+          <span class="mx-1 text-sm text-gray-600 dark:text-gray-300">
+            {moment(post.createdAt).format("DD MMM, YYYY")}
+          </span>
         </div>
-        <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
-        {post.content.raw.children.map((typeObj, index) => {
-          const children = typeObj.children.map((item, itemIndex) =>
-            getContentFragment(itemIndex, item.text, item)
-          );
-          return getContentFragment(index, children, typeObj, typeObj.type);
-        })}
+        <div>
+          <h1
+            href="#"
+            class="mt-6 mb-6 block transform text-3xl font-semibold text-gray-800 transition-colors duration-200 hover:text-gray-600  hover:underline dark:text-white dark:hover:text-white"
+          >
+            {post.title}
+          </h1>
+          <p class="mt-2 mb-6 text-lg text-gray-600 dark:text-white">
+            {post.content.raw.children.map((typeObj, index) => {
+              const children = typeObj.children.map((item, itemIndex) =>
+                getContentFragment(itemIndex, item.text, item)
+              );
+              return getContentFragment(index, children, typeObj, typeObj.type);
+            })}
+          </p>
+        </div>
+
+        <div class="mt-4 ">
+          <div className="mt-4 text-center"></div>
+        </div>
       </div>
     </div>
   );
